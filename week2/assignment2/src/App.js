@@ -23,19 +23,4 @@ export default App;
 
 
 
-// import React from 'react'
-// import './App.css';
-// import Form from './input'
-// import ThingContextProvider from './thingContext'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <ThingContextProvider>
-//         <Form />
-//       </ThingContextProvider>
-//     </div>
-//   );
-// }
-
-// export default App;

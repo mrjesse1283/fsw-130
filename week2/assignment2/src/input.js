@@ -3,35 +3,40 @@ import { ThingConsumer } from "./thingContext"
 
 function Form() {
 
-    // (prevMovies => [...prevMovies, {name:name, price:price}])
-    // props.reset()
-    // e.reset();
-    // }
-    // }
-
-
     return (
 
         <ThingConsumer>
+
             {(context) => {
-                console.log(context)
+                console.log("I am the context")
                 return (
                     <form >
                         <input
                             type="text"
                             name="name"
                             vaule={context.state.name}
-                            placeholder="Movie Title"
-                            onChange={context.addName} />
+                            placeholder="Thing "
+                            onChange={context.addName}
+                        />
+                        <br />
                         <input
                             type="text"
                             name="price"
-                            value={context.state.price}
-                            placeholder="Price"
-                            onChange={context.addPrice} />
+                            value={context.state.desc}
+                            placeholder="Details"
+                            onChange={context.addDesc}
+                        />
+                        <br />
+                        <input
+                            type="url"
+                            name="Url"
+                            value={context.state.image}
+                            placeholder="Add Image here"
+                            onChange={context.addUrl}
+                        />
+                        <br />
+                        <button onClick={context.addThing}>Enter</button>
 
-                        <button onClick={context.addMovie}>Enter</button>
-                        <button onSubmit={context.deleteBtn} >[X]</button>
                     </form>
 
                 )
@@ -47,41 +52,3 @@ function Form() {
 export default Form;
 
 
-
-// import React from 'react'
-// import { ThingConsumer } from './thingContext'
-
-// function Form() {
-
-//     return (
-//         <ThingConsumer>
-
-//             <form>
-//                 <input
-//                     type="text"
-//                      />
-//                 <input
-//                     type="text"
-//                      />
-//                 <input
-//                     type="text"
-//                      />
-//                 <br />
-//                 <button>Add</button>
-//             </form>
-
-//         </ThingConsumer>
-
-//     )
-// }
-
-// export default Form;
-// constructor(props) {
-//     super(props);
-//     this.state = {
-//         name: '',
-//         url: '',
-//         details: ''
-//     }
-
-// }

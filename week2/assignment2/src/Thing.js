@@ -1,10 +1,13 @@
-const Thing = (props) => {
-    return (
-        <div>
-            <h2>{props.name}</h2>
-            <h3>{props.price}</h3>
-        </div>
-    )
-}
+// const Thing = (props) => {
+//     return (
+//         <div>
 
-export default Thing
+//             <div>{props.image}</div>
+//             <h2>{props.name}</h2>
+//             <p>{props.image}</p>
+
+//         </div>
+//     )
+// }
+
+// export default Thing

@@ -7,15 +7,20 @@ import { ThingConsumer } from './thingContext';
 export default class UglyList extends Component {
     render() {
         return (
-            
+
             <ThingConsumer>
-                {({ state:{movies} }) => (
-                    <div className="movies">
-                        {movies.map((movie) => {
+                {({ state: { UglyThings }, deleteBtn, editThing }) => (
+                    <div className="thing">
+                        {UglyThings.map((thing) => {
                             return (
-                                <div key={movie.id}>
-                                    <h2>{movie.name}</h2>
-                                    <h3>{movie.price}</h3>
+                                <div className="card" key={thing.id} id="flex-container" >
+
+                                    <img id="img" src={thing.image} alt="images" />
+                                    <h1 id="title">{thing.name}</h1>
+                                    <h3 id="details">{thing.desc}</h3>
+
+                                    <button onClick={editThing}>[EDIT]</button>
+                                    <button onClick={deleteBtn} id={thing.id}>[X]</button>
                                 </div>
                             )
                         })

@@ -10,51 +10,82 @@ export default class ThingContextProvider extends Component {
         super();
         this.state = {
             name: "",
-            price: "",
-            movies: [
+            desc: "",
+            image: "",
+            editing: false,
+
+            UglyThings: [
                 {
-                    name: "Star Wars",
-                    genre: "sci-fi",
-                    price: "$5",
-                    id: 101
+                    id: 1,
+                    name: "Ugly Dog",
+                    desc: "Wow what a wierd looking dog",
+                    image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8dWdseSUyMGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
+
                 },
                 {
-                    name: "Tombstone",
-                    genre: "Western",
-                    price: "$5",
-                    id: 102
+                    id: 2,
+                    name: "Ugly Car",
+                    desc: "So ugly someone just left it on the side of the road!",
+                    image: "https://images.unsplash.com/photo-1610047217419-bb8cd1ccdd7f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dWdseSUyMGNhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
+
                 },
                 {
-                    name: "Gladiator",
-                    genre: "Action",
-                    price: "$5",
-                    id: 103
+                    id: 3,
+                    name: "Ugly Senior Photo",
+                    desc: "How crazy to look back at high school",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQekbR70_hrlgbrs093t__XkNS7_HbDwtefNw&usqp=CAU"
+
                 },
 
             ]
         }
 
     }
-//end of constructor function
+    //end of constructor function
 
     addName = (e) => {
         this.setState({ name: e.target.value });
     }
-    addPrice = (e) => {
-        this.setState({ price: e.target.value });
+    addDesc = (e) => {
+        this.setState({ desc: e.target.value });
     }
-    addMovie = (e) => {
+    addUrl = (e) => {
+        this.setState({ image: e.target.value });
+    }
+    
+    addThing = (e) => {
         e.preventDefault();
-        console.log("i was clicked")
+        // console.log("i was clicked")
         this.setState(prevState => ({
-            movies: [...prevState.movies, { name: this.state.name, price: this.state.price, id: this.state.movies.length + 1 }]
+            UglyThings: [...prevState.UglyThings,
+                 {name: this.state.name, 
+                 desc: this.state.desc, 
+                 image: this.state.image,
+                 id: this.state.UglyThings.length +1}]
+
+        
         }))
+        this.setState({  UglyThings: [...this.state.UglyThings, 
+            {name: this.state.name, 
+            desc: this.state.desc, 
+            image: this.state.image,
+            id: this.state.UglyThings.length +1}] })
+        
     }
     deleteBtn = (event) => {
-        this.setState(...prevState => ({
-            movies: [""]
+        console.log(event.target)
+        this.setState(prevState => ({
+        UglyThings: prevState.UglyThings.filter(thing => {
+            console.log(thing);
+            return event.target.id != thing.id
+            })
         }))
     }
+    editThing = (e) => {
+        console.log(e)
+        this.setState(x => ({
+            x, editing: true, id: e.target.id, name: e.target.name, desc: e.target.desc })
+        )}
 
 
     render() {
@@ -63,9 +94,11 @@ export default class ThingContextProvider extends Component {
             <Provider value={{
                 state: this.state,
                 addName: this.addName,
-                addPrice: this.addPrice,
-                addMovie: this.addMovie,
-                deleteBtn: this.deleteBtn
+                addDesc: this.addDesc,
+                addUrl: this.addUrl,
+                addThing: this.addThing,
+                deleteBtn: this.deleteBtn,
+                editThing: this.editThing
             }}>
                 {this.props.children}
             </Provider>
@@ -74,43 +107,3 @@ export default class ThingContextProvider extends Component {
 }
 
 export { ThingContextProvider, Consumer as ThingConsumer }
-
-
-
-
-// import React, { Component } from 'react'
-
-// const { Provider, Consumer } = React.createContext();
-
-// export default class ThingContextProvider extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             name: '',
-//             url: '',
-//             details: ''
-//         }
-//     }
-//     handleThing = (e) => [
-//         this.setState({ state: e.taget.value })
-//     ]
-//     addThing = (e) => {
-//         this.setState({ name: e.target.value });
-//     }
-//     deleteThing = (e) => {
-//         this.setState({ url: e.target.value });
-//     }
-//     editThing = (e) => {
-
-//     }
-//     render() {
-//         return (
-//             <Provider value={{ state: this.state }}>
-//                 {this.props.children}
-//             </Provider>
-//         )
-//     }
-// }
-
-
-// export { ThingContextProvider, Consumer as ThingConsumer }
