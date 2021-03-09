@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body{ 
+    background-color: black ;
+    color: white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
+    margin-top: 15%;
+}
+
+.header {
+    font-size: 45px;
+}
+#timer {
+    background-color: black;
+    border-radius: 20px;
+    padding: 30px;
+    padding-bottom: 10px;
+    font-size: 35px;
+}
+.buttons {
+    font-size: 50px;
+    border-radius: 20px;
+}
+#startBtn {
+    background-color: green;
+    border-radius: 20px;
+}
+#stopBtn {
+    background-color: red;
+    border-radius: 20px;
+}
+#resetBtn { 
+    background-color: yellow;
+    border-radius: 20px;
+}

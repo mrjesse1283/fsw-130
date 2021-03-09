@@ -1,0 +1,43 @@
+const redux = require('redux')
+
+
+const timerState = {
+    min: 0,
+    sec: 0,
+    running: true, 
+    laps: []
+}
+
+function start(){
+    return { type: "START"}
+}
+function stop(){
+    return { type: "STOP"}
+}
+function reset(){
+    return { type: "RESET"}
+}
+ function reducer(state = initialState, action) {
+     switch(action.type) {
+         case "START":
+             return
+
+     }
+ }
+const store = Redux.createStore(reducer);
+
+let state = store.getState()
+
+
+const startBtn = document.getElementById('startBtn')
+startBtn.addEventListener('click', () => {
+    store.dispatch(start())
+})
+const stopBtn = document.getElementById('stopBtn')
+stopBtn.addEventListener('click', () => {
+    store.dispatch(stop())
+})
+const resetBtn = document.getElementById('resettBtn')
+resetBtn.addEventListener('click', () => {
+    store.dispatch(reset())
+})
