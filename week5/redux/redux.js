@@ -28,12 +28,12 @@ store.dispatch(addShow('Handy Manny'))
 store.dispatch(addShow('Sniper'))
 
 //remove
-store.dispatch(removeMovie('Toy Story'))
+store.dispatch(removeMovie('Aladdin'))
 store.dispatch(removeShow('Friends'))
 
 // Get all
-// store.dispatch(getMovies(""))
-// store.dispatch(getShows(""))
+// store.dispatch(getMovies())
+// store.dispatch(getShows())
 
 
 
