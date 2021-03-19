@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script  src="https://unpkg.com/redux@latest/dist/redux.min.js"></script> -->
+    <title>Combining Reducers</title>
+</head>
+
+<body>
+    <div id="header">WebFlix</div>
+    <form id="form">
+        <div class="label">
+            <label for="name">Title</label>
+            <input type="text" id="name" name="name" placeholder="Title">
+        </div>
+        <!-- <div>
+            <label for="age"></label>
+            <input type="number" id="age" name="age" placeholder="Age">
+        </div> -->
+        <button id="addMovie" type="submit">Add Movie</button>
+        <button id="addShow" type="submit">Add Show</button>
+    </form>
+
+    
+    <div>
+        <ul class="movie" id="movieList"></ul>
+    </div>
+    <div>
+        <ul class="Show" id="showList"></ul>
+    </div>
+
+
+
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script src="index.js" ></script>
+
+</body>
+
+</html>
