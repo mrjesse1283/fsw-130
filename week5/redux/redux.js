@@ -1,7 +1,7 @@
 const redux = require("redux")
 const { combineReducers, createStore } = redux
 const { addMovie, removeMovie, getMovies, movieReducer } = require("./movie.js") 
-const { addShow, removeShow, showReducer }  = require("./show.js")
+const { addShow, removeShow, showReducer, getShows }  = require("./show.js")
 
 const rootReducer = combineReducers({
     Movies: movieReducer,
@@ -32,8 +32,8 @@ store.dispatch(removeMovie('Aladdin'))
 store.dispatch(removeShow('Friends'))
 
 // Get all
-// store.dispatch(getMovies())
-// store.dispatch(getShows())
+store.dispatch(getMovies())
+store.dispatch(getShows())
 
 
 

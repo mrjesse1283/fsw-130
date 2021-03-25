@@ -9,6 +9,13 @@ function addShow(show) {
         payload: show
     }
 }
+function getShows(show) {
+    return {
+        type: "GET_SHOWS",
+        payload: show
+    }    
+}
+
 const initialState = {
     shows: []
 }
@@ -33,6 +40,10 @@ function showReducer(state = initialState, action) {
                 ...state,
                 shows: updatedArr
             }
+            case "GET_SHOWS":
+                return {
+                    ...state 
+                }
 
 
         default:
@@ -42,7 +53,8 @@ function showReducer(state = initialState, action) {
 module.exports = {
     showReducer: showReducer,
     addShow: addShow,
-    removeShow: removeShow
+    removeShow: removeShow,
+    getShows: getShows
 }
 // let addShow = document.getElementById('addShow')
 // addShow.addEventListener('click', (e) => {
