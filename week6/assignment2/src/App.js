@@ -16,6 +16,8 @@ function App() {
       </div>
 
       <Switch>
+      {/* <Route exact path="/home">
+        <Home /> */}
       <Route exact path="/movies">
         <MovieForm />
       </Route>
